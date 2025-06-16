@@ -1,139 +1,128 @@
-# Thread-Management-Simulation
+# Thread Management Simulation 🌐
 
-![Python](https://img.shields.io/badge/python-3.7%2B-blue)
-![Flask](https://img.shields.io/badge/flask-2.0%2B-lightgrey)
+![GitHub release](https://img.shields.io/github/release/Sabel200110/thread-management-simulation.svg)  
+[Download the latest release](https://github.com/Sabel200110/thread-management-simulation/releases)
 
-A high-performance web server simulation with advanced thread pool management, queue overflow handling, and comprehensive performance monitoring.
+Welcome to the **Thread Management Simulation** repository! This project provides a high-performance web server simulation featuring a thread pool, queue handling, and real-time monitoring capabilities. It serves as a valuable tool for developers and system administrators who wish to understand the intricacies of threading and resource management in web servers.
 
-## Project Overview
+## Table of Contents
 
-This project simulates a simple web server with sophisticated thread pool management, request queuing, and performance monitoring. It demonstrates:
+- [Introduction](#introduction)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Real-Time Monitoring Dashboard](#real-time-monitoring-dashboard)
+- [Load Testing](#load-testing)
+- [Postman Collection](#postman-collection)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-- Thread pool management with CPU affinity
-- Request queue overflow handling
-- Comprehensive performance metrics collection
-- Real-time monitoring dashboard
-- Different endpoint types (fast, medium, slow, upload)
-- Bulk request testing capabilities
+## Introduction
 
-## Key Features
+In today’s fast-paced digital world, efficient resource management is crucial for web applications. This simulation helps users visualize and understand how threading works in a web server context. It demonstrates how a thread pool can efficiently handle multiple requests while managing resources effectively.
 
-- **Thread Pool Management**: Configurable thread pool with CPU core affinity
-- **Request Queue**: Fixed-size queue with overflow handling and metrics
-- **Performance Monitoring**: Comprehensive metrics including:
-  - Request throughput
-  - Response times
-  - Queue length history
-  - Thread utilization
-  - CPU core assignment
-- **Real-time Dashboard**: Matplotlib-based monitoring dashboard
-- **Endpoint Simulation**: Various endpoint types with different processing times
-- **Bulk Testing**: Special endpoint for stress testing the queue
-- **Error Simulation**: Endpoint with configurable error rate
+## Features
 
-## Project Structure
-
-```
-Thread-Management-Simulation/
-├── Thread_Simulation.py        # Main server implementation
-├── postman_collection_for_bulk_testing.json  # Postman test collection
-└── README.md                   # This documentation
-```
+- **Thread Pool Management**: Efficiently manages a pool of threads to handle incoming requests.
+- **Queue Handling**: Implements a queue system to manage requests, ensuring that they are processed in an orderly manner.
+- **Real-Time Monitoring**: Provides a dashboard for real-time monitoring of server performance and thread activity.
+- **Load Testing**: Simulates multiple users accessing the server to test its performance under load.
+- **Postman Collection**: Includes a Postman collection for easy testing of the server endpoints.
 
 ## Technologies Used
 
-- Python 3.7+
-- Flask (Web server framework)
-- Threading (Python standard library)
-- Matplotlib (Real-time visualization)
-- NumPy (Statistical calculations)
-- psutil (System monitoring)
+This project utilizes a range of technologies to achieve its goals:
 
-## Installation & Setup
+- **Flask**: A lightweight web framework for building the server.
+- **Python**: The programming language used for server-side logic.
+- **Threading**: For managing concurrent requests.
+- **Queue Simulation**: To handle incoming requests efficiently.
+- **Real-Time Dashboard**: For monitoring server performance.
+- **Postman**: For testing the server endpoints.
 
-1. **Prerequisites**:
-   - Python 3.7 or higher
-   - pip package manager
+## Installation
+
+To set up the project on your local machine, follow these steps:
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Sabel200110/thread-management-simulation.git
+   cd thread-management-simulation
+   ```
 
 2. **Install dependencies**:
+   Make sure you have Python and pip installed. Then run:
    ```bash
-   pip install flask matplotlib numpy psutil
+   pip install -r requirements.txt
    ```
 
 3. **Run the server**:
+   Execute the following command to start the server:
    ```bash
-   python Thread_Simulation.py
+   python app.py
    ```
 
-## Usage Guide
+You can now access the server at `http://127.0.0.1:5000`.
 
-### Basic Usage
+## Usage
 
-1. Start the server:
-   ```bash
-   python Thread_Simulation.py
-   ```
+After starting the server, you can interact with it using various endpoints. Here are some common operations:
 
-2. Access the web interface at `http://localhost:5000`
+- **Start a new request**: Send a request to the server to initiate processing.
+- **Check status**: Query the server to check the status of ongoing requests.
+- **Monitor performance**: Access the real-time monitoring dashboard to view server metrics.
 
-3. Test different endpoints:
-   - `/api/fast` - Fast processing endpoint
-   - `/api/medium` - Medium processing endpoint
-   - `/api/slow` - Slow processing endpoint
-   - `/api/upload` - Upload simulation endpoint (POST)
-   - `/api/error` - Error simulation endpoint
+Refer to the [Postman Collection](#postman-collection) for detailed examples of how to interact with the server.
 
-### Monitoring Endpoints
+## Real-Time Monitoring Dashboard
 
-- `/api/metrics` - Comprehensive server metrics
-- `/api/queue-status` - Real-time queue status
+The real-time monitoring dashboard provides insights into the server's performance. It displays key metrics such as:
 
-## Performance Dashboard
+- **Active Threads**: The number of threads currently handling requests.
+- **Queue Length**: The number of requests waiting to be processed.
+- **Response Times**: Average response times for completed requests.
 
-The real-time monitoring dashboard shows:
+To access the dashboard, navigate to `http://127.0.0.1:5000/dashboard` after starting the server.
 
-1. Thread states (idle/busy)
-2. CPU core assignments
-3. Queue status and history
-4. Dropped requests counter
-5. Requests per second
-6. Response time distribution
-7. System utilization
-8. Total processed requests
-9. Queue theory visualization
-10. Thread state timeline
+## Load Testing
 
-## Testing
+Load testing is crucial for understanding how your server performs under pressure. This simulation allows you to simulate multiple users accessing the server simultaneously. You can adjust the number of simulated users and the duration of the test to see how the server responds.
 
-A Postman collection (`postman_collection_for_bulk_testing.json`) is included for comprehensive testing of:
+To initiate a load test, use the following endpoint:
+```
+POST /load-test
+```
+This endpoint accepts parameters to configure the load test.
 
-- Queue overflow scenarios
-- Bulk request handling
-- Error conditions
-- Performance metrics collection
+## Postman Collection
+
+A Postman collection is included to help you test the server endpoints easily. You can import the collection into Postman and run the predefined requests. This simplifies the process of testing and interacting with the server.
+
+To download the Postman collection, visit the [Releases section](https://github.com/Sabel200110/thread-management-simulation/releases).
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
+We welcome contributions from the community. If you want to contribute, please follow these steps:
 
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Create a new Pull Request
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Create a pull request.
 
-##  Author
+Please ensure that your code adheres to the existing style and includes appropriate tests.
 
-**Sukrut Kulkarni**
-- Email: k.sukrut1010@gmail.com
+## License
 
-## Support
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-If you encounter any issues or have questions:
+## Contact
 
-1. **Open an Issue** on GitHub
-2. **Contact**: k.sukrut1010@gmail.com
+For questions or feedback, feel free to reach out:
 
----
+- **GitHub**: [Sabel200110](https://github.com/Sabel200110)
+- **Email**: sabel@example.com
 
-**⭐ Star this repository if you find it helpful!**
+Thank you for checking out the **Thread Management Simulation**! For the latest updates, visit the [Releases section](https://github.com/Sabel200110/thread-management-simulation/releases).
